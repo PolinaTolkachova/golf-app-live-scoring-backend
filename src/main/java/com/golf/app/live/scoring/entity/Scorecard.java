@@ -19,8 +19,7 @@ public class Scorecard {
     @GeneratedValue(strategy = GenerationType.IDENTITY)
     private Long scorecardID;
 
-    @ElementCollection
-    private List<Long> playerIDs;
+    private Long playerID;
 
     @ManyToOne
     @JoinColumn(name = "tournamentID")

@@ -1,21 +1,16 @@
 package com.golf.app.live.scoring.entity;
 
-import jakarta.persistence.ElementCollection;
-import jakarta.persistence.Entity;
-import jakarta.persistence.GeneratedValue;
-import jakarta.persistence.GenerationType;
-import jakarta.persistence.Id;
-import jakarta.persistence.JoinColumn;
-import jakarta.persistence.ManyToOne;
-import jakarta.persistence.OneToMany;
-import java.util.List;
+import jakarta.persistence.*;
 import lombok.Getter;
 import lombok.Setter;
+
+import java.util.List;
 
 @Getter
 @Setter
 @Entity
 public class Player {
+
     @Id
     @GeneratedValue(strategy = GenerationType.IDENTITY)
     private Long playerID;
@@ -28,8 +23,9 @@ public class Player {
     private List<Long> tournamentIDs;
 
     private String gender;
+
     private Integer handicap;
 
-    @OneToMany(mappedBy = "player")
+    @OneToMany(mappedBy = "playerID")
     private List<Scorecard> scorecards;
 }
