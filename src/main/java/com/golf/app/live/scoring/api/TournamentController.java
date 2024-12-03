@@ -24,4 +24,9 @@ public class TournamentController {
             .orElseThrow(() -> new TournamentNotFoundException("Tournament by ID not found"));
         return tournament;
     }
+
+    @GetMapping
+    public Iterable<Tournament> getAllTournaments() {
+        return tournamentService.getAllTournament();
+    }
 }

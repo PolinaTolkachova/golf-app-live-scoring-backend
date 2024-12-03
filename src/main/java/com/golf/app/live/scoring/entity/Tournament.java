@@ -1,11 +1,6 @@
 package com.golf.app.live.scoring.entity;
 
-import jakarta.persistence.ElementCollection;
-import jakarta.persistence.Entity;
-import jakarta.persistence.GeneratedValue;
-import jakarta.persistence.GenerationType;
-import jakarta.persistence.Id;
-import jakarta.persistence.OneToOne;
+import jakarta.persistence.*;
 import lombok.Getter;
 import lombok.Setter;
 
@@ -24,11 +19,15 @@ public class Tournament {
     private String finishDate;
 
     @ElementCollection
+    @CollectionTable(name = "tournament_players", joinColumns = @JoinColumn(name = "tournamentID"))
+    @Column(name = "playerID")
     private List<Long> players;
 
     private String format;
+    @Column(name = "group")
     private String group;
     private String scoringType;
+    private String location;
 
     @OneToOne(mappedBy = "tournament")
     private Leaderboard leaderboard;
