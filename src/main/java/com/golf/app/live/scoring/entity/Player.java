@@ -19,8 +19,8 @@ public class Player {
     @JoinColumn(name = "userID")
     private User user;
 
-    @ElementCollection
-    private List<Long> tournamentIDs;
+/*    @ElementCollection
+    private List<Long> tournamentIDs;*/
 
     private String gender;
 

@@ -10,6 +10,7 @@ import java.util.List;
 @Setter
 @Entity
 public class Tournament {
+
     @Id
     @GeneratedValue(strategy = GenerationType.IDENTITY)
     private Long tournamentID;
@@ -18,17 +19,17 @@ public class Tournament {
     private String startDate;
     private String finishDate;
 
-    @ElementCollection
+    /*@ElementCollection
     @CollectionTable(name = "tournament_players", joinColumns = @JoinColumn(name = "tournamentID"))
     @Column(name = "playerID")
-    private List<Long> players;
+    private List<Long> players;*/
 
     private String format;
-    @Column(name = "group")
-    private String group;
+    @Column(name = "group_name")
+    private String groupName;
     private String scoringType;
     private String location;
 
-    @OneToOne(mappedBy = "tournament")
-    private Leaderboard leaderboard;
+    /*@OneToOne(mappedBy = "tournament")
+    private SomeOtherEntity someOtherEntity;*/
 }

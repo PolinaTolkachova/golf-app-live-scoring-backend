@@ -21,9 +21,9 @@ public class Scorecard {
 
     private Long playerID;
 
-    @ManyToOne
+/*    @ManyToOne
     @JoinColumn(name = "tournamentID")
-    private Tournament tournament;
+    private Tournament tournament;*/
 
     @ElementCollection
     private List<Integer> scores;

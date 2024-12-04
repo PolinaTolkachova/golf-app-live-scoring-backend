@@ -28,21 +28,20 @@ public class AppSecurityConfig {
     }
 
     @Bean
+    public PasswordEncoder passwordEncoder() {
+        return new BCryptPasswordEncoder();
+    }
+
+    @Bean
     public SecurityFilterChain filterChain(HttpSecurity http) throws Exception {
         http
             .csrf().disable()
             .authorizeHttpRequests((authorize) -> authorize
-                .requestMatchers(HttpMethod.POST).permitAll()
-                .anyRequest().authenticated()
+                .requestMatchers(HttpMethod.GET, "/tournament/**").permitAll() // Allow unauthenticated GET requests to /tournament
+                .anyRequest().authenticated() // Require authentication for other requests
             )
-            .formLogin(withDefaults())
-            .httpBasic(withDefaults());
+            .httpBasic(withDefaults()); // Use HTTP Basic Authentication
+
         return http.build();
     }
-
-    @Bean
-    public PasswordEncoder passwordEncoder() {
-        return new BCryptPasswordEncoder();
-    }
 }
-

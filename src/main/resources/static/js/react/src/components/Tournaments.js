@@ -1,3 +1,5 @@
+// src/components/Tournaments.js
+
 import React, { useEffect, useState } from 'react';
 import axios from 'axios';
 
@@ -5,7 +7,7 @@ const Tournaments = () => {
     const [tournaments, setTournaments] = useState([]);
 
     useEffect(() => {
-        axios.get('/tournament')
+        axios.get('http://localhost:8082/tournament')
             .then(response => {
                 setTournaments(response.data);
             })

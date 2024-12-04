@@ -17,7 +17,7 @@ public class Leaderboard {
     @GeneratedValue(strategy = GenerationType.IDENTITY)
     private Long leaderboardID;
 
-    @OneToOne
+/*    @OneToOne
     @JoinColumn(name = "tournamentID")
-    private Tournament tournament;
+    private Tournament tournament;*/
 }
