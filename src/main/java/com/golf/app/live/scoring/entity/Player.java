@@ -1,31 +1,44 @@
 package com.golf.app.live.scoring.entity;
 
-import jakarta.persistence.*;
+import com.golf.app.live.scoring.enums.Gender;
+
+import jakarta.persistence.Entity;
+import jakarta.persistence.EnumType;
+import jakarta.persistence.Enumerated;
+import jakarta.persistence.GeneratedValue;
+import jakarta.persistence.GenerationType;
+import jakarta.persistence.Id;
+import jakarta.persistence.JoinColumn;
+import jakarta.persistence.ManyToMany;
+import jakarta.persistence.OneToMany;
+import jakarta.persistence.OneToOne;
+import jakarta.persistence.Table;
 import lombok.Getter;
+import lombok.NoArgsConstructor;
 import lombok.Setter;
 
 import java.util.List;
 
 @Getter
 @Setter
+@NoArgsConstructor
 @Entity
+@Table(name = "players")
 public class Player {
 
     @Id
     @GeneratedValue(strategy = GenerationType.IDENTITY)
-    private Long playerID;
+    private Long id;
 
-    @ManyToOne
-    @JoinColumn(name = "userID")
+    @OneToOne
+    @JoinColumn(name = "user_id")
     private User user;
 
-/*    @ElementCollection
-    private List<Long> tournamentIDs;*/
+    @Enumerated(EnumType.STRING)
+    private Gender gender;
 
-    private String gender;
+    @ManyToMany(mappedBy = "players")
+    private List<ScoreCard> scoreCards;
 
     private Integer handicap;
-
-    @OneToMany(mappedBy = "playerID")
-    private List<Scorecard> scorecards;
 }

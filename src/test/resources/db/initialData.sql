@@ -1,0 +1,2 @@
+INSERT INTO tournaments (group_name, name, start_date, finish_date, format, scoring_type, location)
+VALUES ('Group B', 'Spring Open', '2023-04-01', '2023-04-07', 'Stroke Play', 'Standard', 'Augusta National');

@@ -7,9 +7,9 @@
     - [2. View Leaderboard](#2-view-leaderboard)
     - [3. Login](#3-login)
 - [Administrator Stories](#administrator-stories)
-    - [1. View Players' Profiles](#1-view-players-profiles)
-    - [2. Manage Players' Profiles](#2-manage-players-profiles)
-    - [3. Manage Players](#3-manage-players)
+    - [1. View Players](#1-view-players)
+    - [2. Manage Players](#2-manage-players)
+    - [3. Manage Players for tournaments](#3-manage-players-for-tournaments)
     - [4. Manage Tournament](#4-manage-tournament)
 - [Player Stories](#player-stories)
     - [1. Enter Tournament Scores](#1-enter-tournament-scores)
@@ -58,21 +58,21 @@
 
 ## Administrator Stories
 
-### 1. View Players' Profiles
+### 1. View Players
 - **User Story:**
-    - As an administrator, I want to view players' profiles.
+    - As an administrator, I want to view players.
 - **Acceptance Criteria:**
     - Access to a players page is available.
     - View all registered players.
 
-### 2. Manage Players' Profiles
+### 2. Manage Players
 - **User Story:**
-    - As an administrator, I want to manage players' profiles.
+    - As an administrator, I want to manage players.
 - **Acceptance Criteria:**
     - Access to an edit player page is available.
     - Add, edit, and remove players.
 
-### 3. Manage Players
+### 3. Manage Players for tournaments
 - **User Story:**
     - As an administrator, I want to manage players for tournaments.
 - **Acceptance Criteria:**

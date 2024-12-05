@@ -6,18 +6,21 @@ import jakarta.persistence.GenerationType;
 import jakarta.persistence.Id;
 import jakarta.persistence.JoinColumn;
 import jakarta.persistence.OneToOne;
-import lombok.Getter;
-import lombok.Setter;
+import jakarta.persistence.Table;
+import lombok.Data;
+import lombok.NoArgsConstructor;
 
-@Getter
-@Setter
+@Data
+@NoArgsConstructor
 @Entity
+@Table(name = "leaderboards")
 public class Leaderboard {
+
     @Id
     @GeneratedValue(strategy = GenerationType.IDENTITY)
-    private Long leaderboardID;
+    private Long id;
 
-/*    @OneToOne
-    @JoinColumn(name = "tournamentID")
-    private Tournament tournament;*/
+    @OneToOne
+    @JoinColumn(name = "tournament_id")
+    private Tournament tournament;
 }
