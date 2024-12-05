@@ -41,6 +41,7 @@ public class AppSecurityConfig {
             .csrf(csrf -> csrf.disable())
             .authorizeHttpRequests(authorize -> authorize
                 .requestMatchers(HttpMethod.GET, "/tournament/**").permitAll()
+                .requestMatchers(HttpMethod.GET, "/player/**").permitAll()
                 .anyRequest().authenticated()
             )
             .httpBasic(withDefaults());
