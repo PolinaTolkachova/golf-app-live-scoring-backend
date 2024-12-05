@@ -13,18 +13,21 @@ import org.springframework.security.provisioning.InMemoryUserDetailsManager;
 import org.springframework.security.web.SecurityFilterChain;
 
 import static org.springframework.security.config.Customizer.withDefaults;
-
 @Configuration
 @EnableWebSecurity
 public class AppSecurityConfig {
 
     @Bean
     public InMemoryUserDetailsManager userDetailsService() {
-        UserDetails user = User.withUsername("a")
-            .password(passwordEncoder().encode("a"))
-            .build();
-
+        UserDetails user = createUser("a", "a");
         return new InMemoryUserDetailsManager(user);
+    }
+
+    private UserDetails createUser(String username, String password) {
+        return User.withUsername(username)
+            .password(passwordEncoder().encode(password))
+            .roles("USER")
+            .build();
     }
 
     @Bean
@@ -36,11 +39,11 @@ public class AppSecurityConfig {
     public SecurityFilterChain filterChain(HttpSecurity http) throws Exception {
         http
             .csrf().disable()
-            .authorizeHttpRequests((authorize) -> authorize
-                .requestMatchers(HttpMethod.GET, "/tournament/**").permitAll() // Allow unauthenticated GET requests to /tournament
-                .anyRequest().authenticated() // Require authentication for other requests
+            .authorizeHttpRequests(authorize -> authorize
+                .requestMatchers(HttpMethod.GET, "/tournament/**").permitAll()
+                .anyRequest().authenticated()
             )
-            .httpBasic(withDefaults()); // Use HTTP Basic Authentication
+            .httpBasic(withDefaults());
 
         return http.build();
     }
