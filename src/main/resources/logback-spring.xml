@@ -6,7 +6,7 @@
         </encoder>
     </appender>
 
-    <!-- File Appender (if needed) -->
+    <!-- File Appender -->
     <appender name="file" class="ch.qos.logback.core.FileAppender">
         <file>app.log</file>
         <encoder>

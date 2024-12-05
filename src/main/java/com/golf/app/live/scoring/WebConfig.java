@@ -8,15 +8,19 @@ import org.springframework.web.servlet.config.annotation.WebMvcConfigurer;
 @Configuration
 public class WebConfig {
 
+    private static final String[] ALLOWED_ORIGINS = {"http://localhost:3000"};
+    private static final String[] ALLOWED_METHODS = {"GET", "POST", "PUT", "DELETE", "OPTIONS"};
+    private static final String[] ALLOWED_HEADERS = {"*"};
+
     @Bean
     public WebMvcConfigurer corsConfigurer() {
         return new WebMvcConfigurer() {
             @Override
             public void addCorsMappings(CorsRegistry registry) {
                 registry.addMapping("/**")
-                    .allowedOrigins("http://localhost:3000")
-                    .allowedMethods("GET", "POST", "PUT", "DELETE", "OPTIONS")
-                    .allowedHeaders("*");
+                    .allowedOrigins(ALLOWED_ORIGINS)
+                    .allowedMethods(ALLOWED_METHODS)
+                    .allowedHeaders(ALLOWED_HEADERS);
             }
         };
     }

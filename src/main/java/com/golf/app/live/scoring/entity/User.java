@@ -1,6 +1,7 @@
 package com.golf.app.live.scoring.entity;
 
 import com.golf.app.live.scoring.enums.UserRole;
+
 import jakarta.persistence.Entity;
 import jakarta.persistence.EnumType;
 import jakarta.persistence.Enumerated;

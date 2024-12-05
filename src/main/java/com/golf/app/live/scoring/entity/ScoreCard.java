@@ -10,11 +10,11 @@ import jakarta.persistence.JoinTable;
 import jakarta.persistence.ManyToMany;
 import jakarta.persistence.ManyToOne;
 import jakarta.persistence.Table;
+import lombok.Getter;
+import lombok.Setter;
 
 import java.util.Map;
 import java.util.Set;
-import lombok.Getter;
-import lombok.Setter;
 
 @Getter
 @Setter
