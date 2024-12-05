@@ -2,7 +2,7 @@ package com.golf.app.live.scoring.exception;
 
 public class PlayerNotFoundException extends RuntimeException {
 
-    private static final long serialVersionUID = 1L; // Serialization ID for consistent deserialization
+    private static final long serialVersionUID = 1L;
 
     public PlayerNotFoundException(String message) {
         super(message);

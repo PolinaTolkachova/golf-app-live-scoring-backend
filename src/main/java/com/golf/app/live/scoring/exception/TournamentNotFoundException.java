@@ -12,7 +12,5 @@ public class TournamentNotFoundException extends RuntimeException {
         super(message, cause);
     }
 
-    public TournamentNotFoundException(Throwable cause) {
-        super(cause);
-    }
+    public TournamentNotFoundException(Throwable cause) {super(cause);}
 }
