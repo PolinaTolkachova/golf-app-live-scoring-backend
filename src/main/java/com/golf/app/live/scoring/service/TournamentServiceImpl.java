@@ -1,10 +1,12 @@
 package com.golf.app.live.scoring.service;
 
 import com.golf.app.live.scoring.entity.Tournament;
+import com.golf.app.live.scoring.exception.TournamentNotFoundException;
 import com.golf.app.live.scoring.repo.TournamentRepository;
-import java.util.Optional;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
+
+import java.util.Optional;
 
 @Service
 public class TournamentServiceImpl implements TournamentService {
@@ -17,7 +19,7 @@ public class TournamentServiceImpl implements TournamentService {
     }
 
     @Override
-    public Iterable<Tournament> getAllTournament() {
+    public Iterable<Tournament> getAllTournaments() {
         return tournamentRepository.findAll();
     }
 
@@ -33,6 +35,9 @@ public class TournamentServiceImpl implements TournamentService {
 
     @Override
     public void deleteTournament(Long id) {
+        if (!tournamentRepository.existsById(id)) {
+            throw new TournamentNotFoundException("Tournament with ID " + id + " not found");
+        }
         tournamentRepository.deleteById(id);
     }
 

@@ -1,12 +1,13 @@
 package com.golf.app.live.scoring.api;
 
-import com.golf.app.live.scoring.exception.TournamentNotFoundException;
 import com.golf.app.live.scoring.entity.Tournament;
+import com.golf.app.live.scoring.exception.TournamentNotFoundException;
 import com.golf.app.live.scoring.service.TournamentService;
-import org.springframework.web.bind.annotation.GetMapping;
-import org.springframework.web.bind.annotation.PathVariable;
-import org.springframework.web.bind.annotation.RequestMapping;
-import org.springframework.web.bind.annotation.RestController;
+import org.springframework.beans.factory.annotation.Autowired;
+import org.springframework.http.ResponseEntity;
+import org.springframework.web.bind.annotation.*;
+
+import java.util.Optional;
 
 @RestController
 @RequestMapping("/tournament")
@@ -14,19 +15,21 @@ public class TournamentController {
 
     private final TournamentService tournamentService;
 
+    @Autowired
     public TournamentController(TournamentService tournamentService) {
         this.tournamentService = tournamentService;
     }
 
     @GetMapping("/{id}")
-    public Tournament getTournamentById(@PathVariable("id") Long id) {
-        Tournament tournament = tournamentService.getTournamentById(id)
-            .orElseThrow(() -> new TournamentNotFoundException("Tournament by ID not found"));
-        return tournament;
+    public ResponseEntity<Tournament> getTournamentById(@PathVariable("id") Long id) {
+        Optional<Tournament> tournament = tournamentService.getTournamentById(id);
+        return tournament.map(ResponseEntity::ok)
+            .orElseThrow(() -> new TournamentNotFoundException("Tournament with ID " + id + " not found"));
     }
 
     @GetMapping
-    public Iterable<Tournament> getAllTournaments() {
-        return tournamentService.getAllTournament();
+    public ResponseEntity<Iterable<Tournament>> getAllTournaments() {
+        Iterable<Tournament> tournaments = tournamentService.getAllTournaments();
+        return ResponseEntity.ok(tournaments);
     }
 }
