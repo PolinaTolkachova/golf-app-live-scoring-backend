@@ -1,12 +1,87 @@
-.idea
-
+# IDE-specific files
+.idea/
 .classpath
 .project
-.settings
+.settings/
 .factorypath
+.vscode/
 
-.vscode
-
+# Compiled class files and temporary files
 **/bin/
 **/obj/
 **/target/
+**/*.class
+
+# Dependency directories
+.m2/
+.gradle/
+build/
+
+# Logs
+logs/
+*.log
+
+# Temporary files
+*.tmp
+*.temp
+*.swp
+*.swo
+*.swn
+*~
+
+# Debug and diagnostic reports
+hs_err_pid*
+profile
+*.pid
+
+# System files
+.DS_Store
+Thumbs.db
+
+# IntelliJ files
+.gradle/
+.idea/
+*.iml
+
+# Eclipse files
+.classpath
+.project
+.settings/
+
+# Maven specific files
+target/
+!src/main/resources/static/
+!src/main/resources/templates/
+
+# Java compiled files
+*.war
+*.ear
+*.jar
+
+# NetBeans
+nbproject/private/
+build/
+nbbuild/
+dist/
+nbdist/
+nbactions.xml
+nb-configuration.xml
+
+# Visual Studio Code
+.vscode/
+
+# Lombok generated files
+*.lombok.config
+
+# Mac specific files
+.DS_Store
+
+# Windows specific files
+Thumbs.db
+
+# Environment files
+.env
+.env.*
+
+# Temporary files generated for Maven or Gradle tasks
+out/
