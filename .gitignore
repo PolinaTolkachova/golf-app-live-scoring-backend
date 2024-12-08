@@ -5,6 +5,7 @@
 .settings/
 .factorypath
 .vscode/
+application.properties
 
 # Compiled class files and temporary files
 **/bin/
