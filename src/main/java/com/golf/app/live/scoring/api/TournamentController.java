@@ -4,6 +4,7 @@ import com.golf.app.live.scoring.entity.Tournament;
 import com.golf.app.live.scoring.exception.TournamentNotFoundException;
 import com.golf.app.live.scoring.service.TournamentService;
 import org.springframework.beans.factory.annotation.Autowired;
+import org.springframework.http.HttpStatus;
 import org.springframework.http.ResponseEntity;
 import org.springframework.web.bind.annotation.*;
 
@@ -31,5 +32,11 @@ public class TournamentController {
     public ResponseEntity<Iterable<Tournament>> getAllTournaments() {
         Iterable<Tournament> tournaments = tournamentService.getAllTournaments();
         return ResponseEntity.ok(tournaments);
+    }
+
+    @PostMapping
+    public ResponseEntity<Tournament> createTournament(@RequestBody Tournament tournament) {
+        Tournament createdTournament = tournamentService.saveTournament(tournament);
+        return new ResponseEntity<>(createdTournament, HttpStatus.CREATED);
     }
 }

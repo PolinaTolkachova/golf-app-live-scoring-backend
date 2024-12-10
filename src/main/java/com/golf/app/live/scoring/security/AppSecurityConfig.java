@@ -39,8 +39,10 @@ public class AppSecurityConfig {
     public SecurityFilterChain filterChain(HttpSecurity http) throws Exception {
         http
             .csrf(csrf -> csrf.disable())
+            .cors(withDefaults())
             .authorizeHttpRequests(authorize -> authorize
                 .requestMatchers(HttpMethod.GET, "/tournament/**").permitAll()
+                .requestMatchers(HttpMethod.POST, "/tournament/**").permitAll()
                 .requestMatchers(HttpMethod.GET, "/player/**").permitAll()
                 .requestMatchers(HttpMethod.GET, "/leaderboard/**").permitAll()
                 .anyRequest().authenticated()
