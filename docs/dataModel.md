@@ -47,7 +47,7 @@
     - `FinishDate`: Finish date of the tournament.
     - `Players`: List of **PlayerIDs** participating.
     - `Format`: Format of the tournament (e.g., Individual, Team).
-    - `Group`: Player group categories (e.g., Men HCP0-12, Men HCP 12.1-24, Men HCP 24.1-36, Women HCP 0-24, Women HCP 24.1-36).
+    - `Group`: Player group categories (e.g., Men HCP 0-12, Men HCP 12.1-24, Men HCP 24.1-36, Women HCP 0-24, Women HCP 24.1-36).
     - `ScoringType`: Scoring type used for calculating results (e.g., Stableford, Stroke Net).
 - **Relationships:**
     - A Tournament can include numerous **Players**.
