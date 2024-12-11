@@ -16,7 +16,6 @@ public class LeaderboardServiceImpl implements LeaderboardService {
         this.leaderboardRepository = leaderboardRepository;
     }
 
-
     @Override
     public Iterable<Leaderboard> getAllLeaderboards() {
         return leaderboardRepository.findAll();

@@ -28,7 +28,6 @@ public class LeaderboardController {
                 .orElseThrow(() -> new LeaderboardNotFoundException("Leaderboard with ID " + id + " not found"));
     }
 
-
     @GetMapping
     public ResponseEntity<Iterable<Leaderboard>> getAllLeaderboards() {
         Iterable<Leaderboard> leaderboards = leaderboardService.getAllLeaderboards();
