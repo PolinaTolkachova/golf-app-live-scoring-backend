@@ -1,7 +1,6 @@
 package com.golf.app.live.scoring.entity;
 
 import com.golf.app.live.scoring.enums.Gender;
-
 import jakarta.persistence.Entity;
 import jakarta.persistence.EnumType;
 import jakarta.persistence.Enumerated;
@@ -12,11 +11,12 @@ import jakarta.persistence.JoinColumn;
 import jakarta.persistence.ManyToMany;
 import jakarta.persistence.OneToOne;
 import jakarta.persistence.Table;
+import java.util.List;
 import lombok.Getter;
 import lombok.NoArgsConstructor;
 import lombok.Setter;
 
-import java.util.List;
+import java.util.Set;
 
 @Getter
 @Setter
@@ -38,6 +38,9 @@ public class Player {
 
     @ManyToMany(mappedBy = "players")
     private List<ScoreCard> scoreCards;
+
+    @ManyToMany
+    private List<Tournament> tournaments;
 
     private Integer handicap;
 }
