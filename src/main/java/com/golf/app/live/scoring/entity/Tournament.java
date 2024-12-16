@@ -29,7 +29,7 @@ public class Tournament {
     private String groupName;
 
     @OneToMany(mappedBy = "tournament", cascade = CascadeType.ALL)
-    private Set<ScoreCard> scorecards;
+    private List<ScoreCard> scorecards;
 
     @ManyToMany
     private List<Player> players;

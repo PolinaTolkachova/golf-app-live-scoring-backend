@@ -6,10 +6,10 @@ import jakarta.persistence.GeneratedValue;
 import jakarta.persistence.GenerationType;
 import jakarta.persistence.Id;
 import jakarta.persistence.JoinColumn;
-import jakarta.persistence.JoinTable;
 import jakarta.persistence.ManyToMany;
 import jakarta.persistence.ManyToOne;
 import jakarta.persistence.Table;
+import java.util.List;
 import lombok.Getter;
 import lombok.Setter;
 
@@ -31,12 +31,7 @@ public class ScoreCard {
     private Tournament tournament;
 
     @ManyToMany
-    @JoinTable(
-        name = "scorecard_players",
-        joinColumns = @JoinColumn(name = "scorecard_id"),
-        inverseJoinColumns = @JoinColumn(name = "player_id")
-    )
-    private Set<Player> players;
+    private List<Player> players;
 
     @ElementCollection
     private Map<Integer, Integer> holeScores;
