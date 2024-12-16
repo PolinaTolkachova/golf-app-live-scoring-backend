@@ -1,9 +1,9 @@
 # Live Scoring Golf Application
 
 ## Table of Contents
-
 - [Overview](#overview)
 - [Features](#features)
+- [Frontend Application](#frontend-application)
 - [Prerequisites](#prerequisites)
 - [Installation](#installation)
 - [Usage](#usage)
@@ -11,25 +11,35 @@
 - [License](#license)
 
 ## Overview
-
 The **Live Scoring Golf Application** is a platform for golf enthusiasts to view tournaments, check live leaderboards, manage player scores, and more.
 
 ## Features
-
 - **Tournaments:** View details of current and upcoming tournaments.
 - **Leaderboards:** Receive real-time updates on player rankings.
 - **Player Profiles:** Admins can add, edit, and organize player profiles and assign them to tournament groups.
 - **Score Management:** Players can enter scores for each hole during tournaments.
 
-## Prerequisites
+## Frontend Application
+The backend of the Live Scoring Golf Application works in conjunction with its frontend, which can be found at [golf-app-live-scoring-frontend](https://github.com/PolinaTolkachova/golf-app-live-scoring-frontend).
 
+### Key Technologies
+- **React:** Used for building dynamic user interfaces.
+- **Axios:** Handles HTTP requests to communicate with the backend API.
+- **React Router:** Manages navigation between different pages of the application.
+- **Bootstrap:** Provides styling for a responsive design.
+
+### Integration
+The frontend interacts with the backend through RESTful APIs to access data, manage tournaments, update player profiles, and handle scoring. Make sure to run the backend services before starting the frontend app to enable seamless communication between the two.
+
+For more details, refer to the [Frontend GitHub Repository](https://github.com/PolinaTolkachova/golf-app-live-scoring-frontend).
+
+## Prerequisites
 Before installing the application, ensure you have the following installed:
 - Java 17 or higher
 - Maven 3.8.0 or higher
 - MySQL 8.x server
 
 ## Installation
-
 To set up the Live Scoring Golf Application locally, follow these steps:
 
 1. **Clone the Repository:** Clone the repository from GitHub:
@@ -58,7 +68,6 @@ To set up the Live Scoring Golf Application locally, follow these steps:
    ```
 
 ## Usage
-
 To run the application:
 
 1. **Start the Application:** Navigate to the main directory and execute the main class:
@@ -71,10 +80,8 @@ To run the application:
     - Run the `main` method in your IDE.
 
 ## API Documentation
-
 The application provides API documentation through Swagger UI:
 - [Swagger UI](http://localhost:8082/swagger-ui/index.html)
 
 ## License
-
 This project is licensed under the [BSD 3-Clause License](LICENSE).
