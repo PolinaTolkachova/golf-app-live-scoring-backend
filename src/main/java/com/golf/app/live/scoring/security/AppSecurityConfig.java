@@ -43,6 +43,7 @@ public class AppSecurityConfig {
             .authorizeHttpRequests(authorize -> authorize
                 .requestMatchers(HttpMethod.GET, "/tournament/**").permitAll()
                 .requestMatchers(HttpMethod.POST, "/tournament/**").permitAll()
+                .requestMatchers(HttpMethod.PUT, "/tournament/**").permitAll()
                 .requestMatchers(HttpMethod.GET, "/player/**").permitAll()
                 .requestMatchers(HttpMethod.POST, "/player/**").permitAll()
                 .requestMatchers(HttpMethod.GET, "/leaderboard/**").permitAll()

@@ -39,4 +39,25 @@ public class TournamentController {
         Tournament createdTournament = tournamentService.saveTournament(tournament);
         return new ResponseEntity<>(createdTournament, HttpStatus.CREATED);
     }
+
+    @PutMapping("/{id}")
+    public ResponseEntity<Tournament> updateTournament(@PathVariable("id") Long id, @RequestBody Tournament updatedTournament) {
+        Optional<Tournament> existingTournament = tournamentService.getTournamentById(id);
+
+        if (!existingTournament.isPresent()) {
+            throw new TournamentNotFoundException("Tournament with ID " + id + " not found");
+        }
+
+        Tournament tournamentToUpdate = existingTournament.get();
+        tournamentToUpdate.setName(updatedTournament.getName());
+        tournamentToUpdate.setLocation(updatedTournament.getLocation());
+        tournamentToUpdate.setStartDate(updatedTournament.getStartDate());
+        tournamentToUpdate.setFinishDate(updatedTournament.getFinishDate());
+        tournamentToUpdate.setScoringType(updatedTournament.getScoringType());
+        tournamentToUpdate.setFormat(updatedTournament.getFormat());
+        tournamentToUpdate.setPlayers(updatedTournament.getPlayers());
+
+        Tournament updated = tournamentService.saveTournament(tournamentToUpdate);
+        return ResponseEntity.ok(updated);
+    }
 }
